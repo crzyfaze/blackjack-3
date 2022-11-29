@@ -309,7 +309,7 @@ if (compTotal < 17 && compCards ==4) {
   document.getElementById('compImage5').style.display = "inline"
   compTotal = numSix2 + numSeven2 + numEight2
   compCards = 6
-}
+} 
 
 
 if (compTotal > 21) {
