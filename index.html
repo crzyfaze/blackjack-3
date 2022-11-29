@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Black Jack 3</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato&family=Lora&family=Montserrat&family=Nerko+One&family=Poppins&family=Roboto+Condensed&display=swap"
+    rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo-b.png">
+</head>
+
+<body>
+  <div id="div1">
+
+    <h2 id="slotTitle">Slot Machine</h2><br>
+
+    <div id="imageCenter">
+      <table>
+        <tr>
+          <h3 id="userHeader">User</h3>
+          <td>
+
+            <img id="userImage1" src="images/back_red.png" alt="User Image 1" style="width:150px">
+          </td>
+          <td>
+            <img id="userImage2" src="images/back_red.png" alt="User Image 2" style="width:150px">
+          </td>
+          <td>
+            <img id="userImage3" src="images/back_red.png" alt="User Image 2" style="width:150px; display: none;">
+          </td>
+          <td>
+            <img id="userImage4" src="images/back_red.png" alt="User Image 2" style="width:150px; display: none;">
+          </td>
+          <td>
+            <img id="userImage5" src="images/back_red.png" alt="User Image 2" style="width:150px; display: none;">
+          </td>
+
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <h3 id="compHeader">Dealer</h3>
+          <td>
+            <img id="compImage1" src="images/back_blue.png" alt="Computer Image 1" style="width:150px">
+          </td>
+          <td>
+            <img id="compImage2" src="images/back_blue.png" alt="Computer Image 2" style="width:150px">
+          </td>
+          <td>
+            <img id="compImage3" src="images/back_blue.png" alt="Computer Image 2" style="width:150px; display: none;">
+          </td>
+          <td>
+            <img id="compImage4" src="images/back_blue.png" alt="Computer Image 2" style="width:150px; display:none;">
+          </td>
+          <td>
+            <img id="compImage5" src="images/back_blue.png" alt="Computer Image 2" style="width:150px; display:none;">
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+
+  </div>
+
+  <div id='div2'>
+    <div id="centering">
+      <h3 id="amountTitle">Bet your Amount!</h3>
+      <input type="range" min="0" max="100" value="50" class="slider" id="myRange"><br>
+      <p id="demo"></p>
+
+      <button class="button1" id="deal" onClick="deal()">Deal</button>
+      <button disabled class="button1" id="hit" onClick="hit()">Hit</button>
+      <button disabled class="button1" id="stay" onClick="stay()">Stay</button><br><br>
+
+      <div id="tokensCount">
+        <strong><i>Tokens: </i></strong><text id="userTokens">100</text><br><br>
+        <strong><i>Output: </i></strong><text id="output"></text>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
