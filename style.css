@@ -14,6 +14,7 @@ body {
     background-color: #BCEAD5;
     box-shadow: 5px 5px 6px #609f83;
     border-radius: 10px;
+    position: relative;
   }
   
   h2 {
