@@ -40,7 +40,7 @@ let timesHit = 0
 
 let userTotal = 0
 let compTotal = 0
-
+let compCards = 2
 
 function deal() {
 
@@ -294,13 +294,25 @@ function stay() {
 
 
 
-if (compTotal < 17) {
+if (compTotal < 17 && compCards ==2) {
   document.getElementById('compImage3').style.display = "inline"
   compTotal = numSix2 + numSeven2 + numEight2
+  compCards = 3
 } 
 
+if (compTotal < 17 && compCards ==3) {
+  document.getElementById('compImage4').style.display = "inline"
+  compTotal = numSix2 + numSeven2 + numEight2
+  compCards = 4
+}
+if (compTotal < 17 && compCards ==4) {
+  document.getElementById('compImage5').style.display = "inline"
+  compTotal = numSix2 + numSeven2 + numEight2
+  compCards = 6
+}
 
-if (compTotal > 21 && userTotal) {
+
+if (compTotal > 21) {
   strOutput = "Dealer Busted!"
   document.getElementById('deal').disabled = false
   document.getElementById('hit').disabled = true
