@@ -7,4 +7,6 @@ write code for ace either 11 or 1
 deal again pop up after someone losses
 keep everything functioning from black jack 2 with the new addition in place
 
-<b>BLACK JACL 3 IS NOT WORKING AS OF RIGHT NOW!</b>
+<b>BLACK JACk 3 IS NOT WORKING AS OF RIGHT NOW!</b>
+
+made by Hari Patel
