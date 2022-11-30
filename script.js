@@ -1,7 +1,7 @@
 
 let numUserTokens = 100
 let strOutput = ""
-let numCompScore = 0
+let numCompPlayTime = 0
 let numPlayTotal = 0
 let numTokenBet = 0
 
@@ -42,10 +42,19 @@ let userTotal = 0
 let compTotal = 0
 let compCards = 2
 
+let UserCompCombCard1 = 0
+let UserCompCombCard2 = 0
+let UserCompCombCard3 = 0
+let UserCompCombCard4 = 0
+
+let numCompCombCard1 = numSix2 + numSeven2
+let numCompCombCard2 = numSix2 + numSeven2 + numEight2
+let numCompCombCard3 = numSix2 + numSeven2 + numEight2 + numNine2
+let numCompCombCard4 = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
 function deal() {
 
   //buttons shyows when pressed deal
-    document.getElementById('deal').disabled = true
+  document.getElementById('deal').disabled = true
   document.getElementById('hit').disabled = false
   document.getElementById('stay').disabled = false
 
@@ -75,22 +84,17 @@ function deal() {
   numSeven2 = Math.floor((Math.random() * 13)) + 1
 
   numEight1 = Math.floor((Math.random() * 4)) + 1
-  numEight2 = Math.floor((Math.random() * 13)) + 1
+  numEight2 = 1//Math.floor((Math.random() * 13)) + 1
 
   numNine1 = Math.floor((Math.random() * 4)) + 1
-  numNine2 = Math.floor((Math.random() * 13)) + 1
+  numNine2 = 1//Math.floor((Math.random() * 13)) + 1
 
   numTen1 = Math.floor((Math.random() * 4)) + 1
-  numTen2 = Math.floor((Math.random() * 13)) + 1
+  numTen2 = 1//Math.floor((Math.random() * 13)) + 1
 
 
 
-
-
-
-
-
-//user last 3 images set hidden
+  //user last 3 images set hidden
   document.getElementById('userImage3').style.display = "none"
   document.getElementById('userImage4').style.display = "none"
   document.getElementById('userImage5').style.display = "none"
@@ -115,49 +119,64 @@ function deal() {
   document.getElementById('compImage4').src = "images/" + numNine1 + '.' + numNine2 + '.png'
   document.getElementById('compImage5').src = "images/" + numTen1 + '.' + numTen2 + '.png'
 
-//user check for ace and above 11
-  if (numOne2 == 1) {
-    numOne2 = 11
-  } else if (numOne2 >= 11) {
+  //user check for ace and above 11
+  if (numOne2 >= 11) {
     numOne2 = 10
   }
-  if (numTwo2 == 1) {
-    numTwo2 = 11
-  } else if (numTwo2 >= 11) {
+  if (numTwo2 >= 11) {
     numTwo2 = 10
   }
-  if (numThree2 == 1) {
-    numThree2 = 11
-  } else if (numThree2 >= 11) {
+  if (numThree2 >= 11) {
     numThree2 = 10
   }
-  if (numFour2 == 1) {
-    numFour2 = 11
-  } else if (numFour2 >= 11) {
+  if (numFour2 >= 11) {
     numFour2 = 10
   }
-  if (numFive2 == 1) {
-    numFive2 = 11
-  } else if (numFive2 >= 11) {
+  if (numFive2 >= 11) {
     numFive2 = 10
   }
 
-
   //comp check for ace and above 11
-  if (numSix2 == 1) {
-    numSix2 = 11
-  } else if (numSix2 >= 11) {
+  if (numSix2 >= 11) {
     numSix2 = 10
   }
 
-  if (numSeven2 == 1) {
-    numSeven2 = 11
-  } else if (numSeven2 >= 11) {
+  if (numSeven2 >= 11) {
     numSeven2 = 10
+  }
+  if (numEight2 >= 11) {
+    numEight2 = 10
+  }
+
+  if (numNine2 >= 11) {
+    numNine2 = 10
+  }
+
+  if (numTen2 >= 11) {
+    numTen2 = 10
   }
 
 
+
+
+UserCompCombCard1 = numOne2 + numTwo2
+UserCompCombCard2 = numOne2 + numTwo2 + numThree2
+UserCompCombCard3 = numOne2 + numTwo2 + numThree2 + numFour2
+UserCompCombCard4 = numOne2 + numTwo2 + numThree2 + numFour2 + numFive2
+
+numCompCombCard1 = numSix2 + numSeven2
+numCompCombCard2 = numSix2 + numSeven2 + numEight2
+numCompCombCard3 = numSix2 + numSeven2 + numEight2 + numNine2
+numCompCombCard4 = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
+
+
+
+
+
+
+
   
+
   console.log("1-7")
   console.log(numOne2, "--1")
   console.log(numTwo2, "--2")
@@ -168,7 +187,7 @@ function deal() {
   console.log(numSeven2, "--7")
   console.log(numEight2, "--8")
   console.log(numNine2, "--9")
-  console.log(numTen2, "--10")  
+  console.log(numTen2, "--10")
 
 
   //token check
@@ -189,7 +208,7 @@ function deal() {
 
   userTotal = numOne2 + numTwo2
   compTotal = numSeven2
-  
+
 
 
   //check if won via 5 card or 21 on dot
@@ -224,7 +243,7 @@ function deal() {
 
 
   timesHit = 0
-    document.getElementById('output').innerHTML = strOutput
+  document.getElementById('output').innerHTML = strOutput
 }
 
 function hit() {
@@ -282,6 +301,9 @@ function hit() {
 
 }
 
+
+
+
 function stay() {
 
 
@@ -293,34 +315,51 @@ function stay() {
   compTotal = numSix2 + numSeven2
 
 
+  if (compTotal < 17) {
+    document.getElementById('compImage3').style.display = "inline"
+    compTotal = compTotal + numEight2
+    numCompPlayTime = 1
+  }
 
-if (compTotal < 17 && compCards ==2) {
-  document.getElementById('compImage3').style.display = "inline"
-  compTotal = numSix2 + numSeven2 + numEight2
-  compCards = 3
-} 
-
-if (compTotal < 17 && compCards ==3) {
-  document.getElementById('compImage4').style.display = "inline"
-  compTotal = numSix2 + numSeven2 + numEight2
-  compCards = 4
-}
-if (compTotal < 17 && compCards ==4) {
-  document.getElementById('compImage5').style.display = "inline"
-  compTotal = numSix2 + numSeven2 + numEight2
-  compCards = 6
-} 
+  if (numEight2 == 1 && numCompPlayTime == 1 && numCompCombCard1 <=10) {
+    numEight2 = 11
+    compTotal = numSix2 + numSeven2 + numEight2
+  } else if (numEight2 == 1 && numCompPlayTime == 1 && numCompCombCard1>=11) {
+    numEight2 = 1
+    compTotal = numSix2 + numSeven2 + numEight2
+  }
 
 
-if (compTotal > 21) {
-  strOutput = "Dealer Busted!"
-  document.getElementById('deal').disabled = false
-  document.getElementById('hit').disabled = true
-  document.getElementById('stay').disabled = true
-  numUserTokens = numUserTokens + numTokenBet
-}
 
+  
+  if (compTotal < 17) {
+    document.getElementById('compImage4').style.display = "inline"
+    compTotal = compTotal+ numNine2
+    numCompPlayTime = 2
+  }
 
+  if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard2 <=10) {
+    numNine2 = 11
+    compTotal = numSix2 + numSeven2 + numEight2 + numNine2
+  } else if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard2>=11) {
+    numNine2 = 1
+    compTotal = numSix2 + numSeven2 + numEight2 + numNine2
+  }
+
+  
+  if (compTotal < 17) {
+    document.getElementById('compImage5').style.display = "inline"
+    compTotal = compTotal + numTen2
+    numCompPlayTime = 2
+  }
+
+  if (numTen2 == 1 && numCompPlayTime == 2 && numCompCombCard3 <=10) {
+    numTen2 = 11
+    compTotal = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
+  } else if (numTen2 == 1 && numCompPlayTime == 2 && numCompCombCard3>=11) {
+    Ten = 1
+    compTotal = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
+  }
 
 
 
@@ -351,6 +390,9 @@ if (compTotal > 21) {
 
   document.getElementById('userTokens').innerHTML = numUserTokens
   document.getElementById('output').innerHTML = strOutput
+
+    document.getElementById('userScore').innerHTML = userTotal
+    document.getElementById('compScore').innerHTML = compTotal
 
 }
 
