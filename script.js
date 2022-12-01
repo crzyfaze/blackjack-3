@@ -48,11 +48,11 @@ let UserCompCombCard3 = 0
 let UserCompCombCard4 = 0
 
 let numCompCombCard1 = numSix2 + numSeven2
-let numCompCombCard2 = numSix2 + numSeven2 + numEight2
+//let numCompCombCard2 = numSix2 + numSeven2 + numEight2
 let numCompCombCard3 = numSix2 + numSeven2 + numEight2 + numNine2
 let numCompCombCard4 = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
 function deal() {
-
+document.getElementById('deal').innerHTML = "Deal"
   //buttons shyows when pressed deal
   document.getElementById('deal').disabled = true
   document.getElementById('hit').disabled = false
@@ -78,10 +78,10 @@ function deal() {
 
   //comp cards numb generator
   numSix1 = Math.floor((Math.random() * 4)) + 1
-  numSix2 = Math.floor((Math.random() * 13)) + 1
+  numSix2 = 1//Math.floor((Math.random() * 13)) + 1
 
   numSeven1 = Math.floor((Math.random() * 4)) + 1
-  numSeven2 = Math.floor((Math.random() * 13)) + 1
+  numSeven2 = 1// Math.floor((Math.random() * 13)) + 1
 
   numEight1 = Math.floor((Math.random() * 4)) + 1
   numEight2 = 1//Math.floor((Math.random() * 13)) + 1
@@ -158,12 +158,14 @@ function deal() {
 
 
 
-
+//user combination cards
 UserCompCombCard1 = numOne2 + numTwo2
 UserCompCombCard2 = numOne2 + numTwo2 + numThree2
 UserCompCombCard3 = numOne2 + numTwo2 + numThree2 + numFour2
 UserCompCombCard4 = numOne2 + numTwo2 + numThree2 + numFour2 + numFive2
 
+
+//computer combination cards
 numCompCombCard1 = numSix2 + numSeven2
 numCompCombCard2 = numSix2 + numSeven2 + numEight2
 numCompCombCard3 = numSix2 + numSeven2 + numEight2 + numNine2
@@ -177,17 +179,6 @@ numCompCombCard4 = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
 
   
 
-  console.log("1-7")
-  console.log(numOne2, "--1")
-  console.log(numTwo2, "--2")
-  console.log(numThree2, "--3")
-  console.log(numFour2, "--4")
-  console.log(numFive2, "--5")
-  console.log(numSix2, "--6")
-  console.log(numSeven2, "--7")
-  console.log(numEight2, "--8")
-  console.log(numNine2, "--9")
-  console.log(numTen2, "--10")
 
 
   //token check
@@ -307,24 +298,28 @@ function hit() {
 function stay() {
 
 
-  document.getElementById('compImage1').style.display = "inline"
+ document.getElementById('compImage1').style.display = "inline"
 
 
   document.getElementById('compImage1').src = "images/" + numSix1 + '.' + numSix2 + '.png'
 
-  compTotal = numSix2 + numSeven2
+ // compTotal = numSix2 + numSeven2
+
+
+
+
 
 
   if (compTotal < 17) {
     document.getElementById('compImage3').style.display = "inline"
     compTotal = compTotal + numEight2
-    numCompPlayTime = 1
+    numCompPlayTime = 3
   }
 
-  if (numEight2 == 1 && numCompPlayTime == 1 && numCompCombCard1 <=10) {
+  if (numEight2 == 3 && numCompPlayTime == 1 && numCompCombCard1 <=10) {
     numEight2 = 11
     compTotal = numSix2 + numSeven2 + numEight2
-  } else if (numEight2 == 1 && numCompPlayTime == 1 && numCompCombCard1>=11) {
+  } else if (numEight2 == 3 && numCompPlayTime == 1 && numCompCombCard1 >=11) {
     numEight2 = 1
     compTotal = numSix2 + numSeven2 + numEight2
   }
@@ -338,10 +333,10 @@ function stay() {
     numCompPlayTime = 2
   }
 
-  if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard2 <=10) {
+  if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard3 <=10) {
     numNine2 = 11
     compTotal = numSix2 + numSeven2 + numEight2 + numNine2
-  } else if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard2>=11) {
+  } else if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard3 >=11) {
     numNine2 = 1
     compTotal = numSix2 + numSeven2 + numEight2 + numNine2
   }
@@ -353,16 +348,26 @@ function stay() {
     numCompPlayTime = 2
   }
 
-  if (numTen2 == 1 && numCompPlayTime == 2 && numCompCombCard3 <=10) {
+  if (numTen2 == 1 && numCompPlayTime == 2 && numCompCombCard4 <=10) {
     numTen2 = 11
     compTotal = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
-  } else if (numTen2 == 1 && numCompPlayTime == 2 && numCompCombCard3>=11) {
+  } else if (numTen2 == 1 && numCompPlayTime == 2 && numCompCombCard4 >=11) {
     Ten = 1
     compTotal = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
   }
 
 
 
+
+
+
+
+
+
+
+
+
+  //win conditions
   if ((compTotal == userTotal) && (userTotal <= 21 && compTotal <= 21)) {
     strOutput = "no one wins"
     document.getElementById('deal').disabled = false
@@ -385,7 +390,25 @@ function stay() {
     document.getElementById('hit').disabled = true
     document.getElementById('stay').disabled = true
     numUserTokens = numUserTokens + numTokenBet
+  } else if (userTotal > 21){
+    strOutput = "Computer wins"
+    document.getElementById('deal').disabled = false
+    document.getElementById('hit').disabled = true
+    document.getElementById('stay').disabled = true
+    numUserTokens = numUserTokens - numTokenBet
+  } else if (compTotal > 21) {
+    strOutput = "Player wins"
+    document.getElementById('deal').disabled = false
+    document.getElementById('hit').disabled = true
+    document.getElementById('stay').disabled = true
+    numUserTokens = numUserTokens + numTokenBet
   }
+
+
+
+
+
+
 
 
   document.getElementById('userTokens').innerHTML = numUserTokens
@@ -394,6 +417,21 @@ function stay() {
     document.getElementById('userScore').innerHTML = userTotal
     document.getElementById('compScore').innerHTML = compTotal
 
+
+    console.log("1-7")
+    console.log(numOne2, "--1")
+    console.log(numTwo2, "--2")
+    console.log(numThree2, "--3")
+    console.log(numFour2, "--4")
+    console.log(numFive2, "--5")
+    console.log(numSix2, "--6")
+    console.log(numSeven2, "--7")
+    console.log(numEight2, "--8")
+    console.log(numNine2, "--9")
+    console.log(numTen2, "--10")
+  
+
+    document.getElementById("deal").innerHTML = "Deal Again!"
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
