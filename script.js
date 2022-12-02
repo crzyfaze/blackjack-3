@@ -78,7 +78,7 @@ document.getElementById('deal').innerHTML = "Deal"
 
   //comp cards numb generator
   numSix1 = Math.floor((Math.random() * 4)) + 1
-  numSix2 = 1//Math.floor((Math.random() * 13)) + 1
+  numSix2 = 5//Math.floor((Math.random() * 13)) + 1
 
   numSeven1 = Math.floor((Math.random() * 4)) + 1
   numSeven2 = 1// Math.floor((Math.random() * 13)) + 1
@@ -312,8 +312,8 @@ function stay() {
 
   if (compTotal < 17) {
     document.getElementById('compImage3').style.display = "inline"
-    compTotal = compTotal + numEight2
-    numCompPlayTime = 3
+    compTotal = numSix2 + numSeven2 + numEight2
+    numCompPlayTime = 1
   }
 
   if (numEight2 == 3 && numCompPlayTime == 1 && numCompCombCard1 <=10) {
@@ -327,24 +327,25 @@ function stay() {
 
 
   
-  if (compTotal < 17) {
+ if (compTotal < 17) {
     document.getElementById('compImage4').style.display = "inline"
-    compTotal = compTotal+ numNine2
+    compTotal = numSix2 + numSeven2 + numEight2 + numNine2
     numCompPlayTime = 2
   }
 
-  if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard3 <=10) {
+  if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard2 <=10) {
     numNine2 = 11
     compTotal = numSix2 + numSeven2 + numEight2 + numNine2
-  } else if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard3 >=11) {
+  } else if (numNine2 == 1 && numCompPlayTime == 2 && numCompCombCard2 >=11) {
     numNine2 = 1
     compTotal = numSix2 + numSeven2 + numEight2 + numNine2
   }
 
+/** 
   
   if (compTotal < 17) {
     document.getElementById('compImage5').style.display = "inline"
-    compTotal = compTotal + numTen2
+    compTotal = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
     numCompPlayTime = 2
   }
 
@@ -355,7 +356,7 @@ function stay() {
     Ten = 1
     compTotal = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
   }
-
+**/
 
 
 
