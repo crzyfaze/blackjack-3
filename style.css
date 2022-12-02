@@ -22,6 +22,10 @@ body {
     
   }
   
+#deal {
+  width: 200px;
+}
+
   img {
     font-family: 'Montserrat', sans-serif;
     box-shadow: 5px 5px 6px #609f83;
