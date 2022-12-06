@@ -309,7 +309,7 @@ function stay() {
   compTotal = 0
 
 
-
+//check if comptotal is under 17 and if so, display card. before displaying card, check if ace; 11 or 1 value
 
  if (numSix2 == 1  && compTotal <= 10) {
   numSix2 = 11
