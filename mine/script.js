@@ -47,7 +47,7 @@ let UserCombCard2 = 0
 let UserCombCard3 = 0
 let UserCombCard4 = 0
 
-let numCompCombCard0 = numSix2
+
 let numCompCombCard1 = numSix2 + numSeven2
 let numCompCombCard2 = numSix2 + numSeven2 + numEight2
 let numCompCombCard3 = numSix2 + numSeven2 + numEight2 + numNine2
@@ -185,16 +185,7 @@ numCompCombCard4 = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
 
 
   //token check
-  if (numUserTokens == 0) {
-    alert("You don't have any tokens! Press the reset button!")
-    return
-  } else if (numTokenBet < 10) {
-    alert("Bet atleast 10 tokens!")
-    return
-  } else if (numTokenBet > numUserTokens) {
-    alert("You can't bet more than you have!")
-    return
-  }
+
 
   document.getElementById('compImage1').src = "images/back_blue.png"
 
@@ -206,7 +197,7 @@ numCompCombCard4 = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
 
 
   //check if won via 5 card or 21 on dot
-  if (userTotal > 21) { // if bust
+  if (userTotal > 21) { 
     strOutput = "You Busted!"
     document.getElementById('deal').disabled = false
     document.getElementById('hit').disabled = true
@@ -310,7 +301,7 @@ function stay() {
 
 
 
-
+//still ahve to figure out. its not working turned all of the aces into the value of 1. 
  if (numSix2 == 1  && compTotal <= 10) {
   numSix2 = 11
   compTotal = numSix2 
@@ -373,10 +364,7 @@ if (numSeven2 == 3 && numCompCombCard0 <=10) {
     compTotal = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
   } 
 
-  /**
 
-
-   */
 
 
 

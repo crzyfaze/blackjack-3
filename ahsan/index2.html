@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>repl.it</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js">
+
+  </script>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="firstDiv">
+    <h1 id="firstHeader">🃏 Black Jack</h1>
+
+
+
+
+
+    <div id="imgUser">
+      <table id="imageTable">
+        <tr><strong class="labelsClass">USER</strong></tr>
+        <tr>
+
+
+          <td>
+            <img id="slotOne" src="images/black_joker.png" alt="Description for screen readers" style="width:100px">
+          </td>
+
+          <td>
+            <img id="slotTwo" src="images/black_joker.png" alt="Description for screen readers" style="width:100px">
+          </td>
+
+
+
+          <td>
+            <img id="slotThree" src="images/black_joker.png" alt="Description for screen readers"
+              style="width:100px; display:none">
+          </td>
+
+          <td>
+            <img id="slotFour" src="images/black_joker.png" alt="Description for screen readers"
+              style="width:100px; display:none">
+          </td>
+
+          <td>
+            <img id="slotFive" src="images/black_joker.png" alt="Description for screen readers"
+              style="width:100px; display:none">
+          </td>
+
+
+        </tr>
+
+      </table>
+
+    </div>
+
+
+
+
+
+    <div id="imgComp">
+
+
+      <table id="imageTable">
+        <tr> <strong class="labelsClass">COMPUTER</strong></tr>
+        <tr>
+
+          <td>
+            <img id="slotSix" src="images/black_joker.png" alt="Description for screen readers" style="width:100px">
+          </td>
+
+          <td>
+            <img id="slotSeven" src="images/black_joker.png" alt="Description for screen readers" style="width:100px">
+          </td>
+
+          <td>
+            <img id="slotEight" src="images/black_joker.png" alt="Description for screen readers" style="width:100px; display:none">
+          </td>
+
+          <td>
+            <img id="slotNine" src="images/black_joker.png" alt="Description for screen readers" style="width:100px; display:none">
+          </td>
+
+          <td>
+            <img id="slotTen" src="images/black_joker.png" alt="Description for screen readers" style="width:100px; display:none">
+          </td>
+
+  
+
+        </tr>
+
+      </table>
+
+    </div>
+
+
+
+
+  </div>
+
+  <div id="secondDiv">
+
+    <label for="numOne" id="Enter"> Enter Tokens: </label>
+    <input type="number" id="betId" name="numOne" value="1"> <span id="tokenSpan">🎫 Tokens:<text id="tokens">
+        100</text></span><br>
+
+    <hr>
+    <button id="button" onClick="newFace()">DEAL 🎡</button> <button id="hit" onClick="hitGame()" disabled>HIT 🃏</button>
+    <button id="stay" onClick="stayGame()" disabled>STAY 🤞</button> 
+
+
+
+  </div>
+
+
+
+  <div id="thirdDiv">
+
+    <text id="winner"></text>
+    <h1 id="num1"></h1>
+  </div>
+</body>
+
+</html>
