@@ -301,7 +301,7 @@ function stay() {
 
 
 
-//still ahve to figure out. its not working turned all of the aces into the value of 1. 
+
  if (numSix2 == 1  && compTotal <= 10) {
   numSix2 = 11
   compTotal = numSix2 
