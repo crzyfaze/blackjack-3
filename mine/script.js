@@ -196,34 +196,7 @@ numCompCombCard4 = numSix2 + numSeven2 + numEight2 + numNine2 + numTen2
 
 
 
-  //check if won via 5 card or 21 on dot
-  if (userTotal > 21) { 
-    strOutput = "You Busted!"
-    document.getElementById('deal').disabled = false
-    document.getElementById('hit').disabled = true
-    document.getElementById('stay').disabled = true
-    numUserTokens = numUserTokens - numTokenBet
-  }
-  if (userTotal == 21) { //if 21 on dot
-    document.getElementById('deal').disabled = false
-    document.getElementById('hit').disabled = true
-    document.getElementById('stay').disabled = true
-    strOutput = "You win!"
-    numUserTokens = numUserTokens + numTokenBet
-  }
-  if (userTotal == compTotal) { //tie; nothing happens until hit
-    document.getElementById('deal').disabled = false
-    document.getElementById('hit').disabled = true
-    document.getElementById('stay').disabled = true
-    strOutput = ""
-  }
-  if (timesHit == 3 && userTotal <= 21) { //5 card charlie
-    strOutput = "5 card Charlie, You Win!"
-    document.getElementById('deal').disabled = false
-    document.getElementById('hit').disabled = true
-    document.getElementById('stay').disabled = true
-    numUserTokens = numUserTokens + numTokenBet
-  }
+
 
 
 
